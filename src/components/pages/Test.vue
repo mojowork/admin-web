@@ -1,10 +1,6 @@
 <template>
     <div>
-        <Button>Default</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="ghost">Ghost</Button>
-        <Button type="dashed">Dashed</Button>
-        <Button type="text">Text</Button>
+        这是一个测试页面
     </div>
 </template>
 
