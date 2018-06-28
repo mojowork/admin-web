@@ -105,10 +105,7 @@ export default {
     border-bottom: 1px solid $color-border;
 }
 .main {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background-color: $color-bg;
+    @include fullScreenFluid();
     .main-header {
         padding: 1rem 0;
         @extend %bg-border-styles;
