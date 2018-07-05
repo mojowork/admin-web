@@ -14,7 +14,8 @@
                     </Input>
                 </FormItem>
                 <FormItem>
-                    <Button type="primary" @click="handleSubmit('formInline')">Signin</Button>
+                    <Button type="primary" @click="handleSubmit('formInline')">登录</Button>
+                    <Button type="text" @click="handleSubmit('formInline')" style="float:right;">忘记密码</Button>
                 </FormItem>
             </Form>
         </div>
@@ -68,7 +69,7 @@
         height: 200px;
         box-sizing: content-box;
         border: 1px solid $color-border;
-        border-radius: .25rem;
+        border-radius: .5rem;
         .login-title{
             margin-bottom: 1rem;
         }

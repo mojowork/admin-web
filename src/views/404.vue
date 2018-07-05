@@ -6,7 +6,7 @@
                 404
             </div>
             <div class="message-desc">
-                Oops.. You just found an error page..
+                我们丢失了它，我们准备去火星寻回！
             </div>
             <div class="message-options">
                 <Button type="primary">回到首页</Button> 

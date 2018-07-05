@@ -9,9 +9,8 @@
 </template>
 
 <script>
-// import util from '@/libs/util.js';
 export default {
-    name: 'messageTip',
+    name: "messageTip",
     props: {
         value: {
             type: Number,
@@ -19,10 +18,9 @@ export default {
         }
     },
     methods: {
-        showMessage () {
-            // util.openNewPage(this, 'message_index');
+        showMessage() {
             this.$router.push({
-                name: 'message_index'
+                name: "Message"
             });
         }
     }
