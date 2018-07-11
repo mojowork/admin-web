@@ -4,7 +4,7 @@
         <header class="main-header">
             <div class="container">
                 <a class="header-brand">
-                    <img src="../assets/logo.png" alt="logo">TakeCloud
+                    <img src="../assets/logo-min.jpg" alt="logo">TakeCloud
                 </a>
                 <div class="header-avator-con">
                     <message-tip v-model="mesCount" class="message-con"></message-tip>
