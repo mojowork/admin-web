@@ -1,79 +1,78 @@
 <template>
     <div class="login">
-        <div class="login-center">
-            <h3 class="login-title">用户登录</h3>
-            <Form ref="formInline" :model="formInline" :rules="ruleInline">
-                <FormItem prop="user">
-                    <Input type="text" v-model="formInline.user" placeholder="Username">
-                        <Icon type="ios-person-outline" slot="prepend"></Icon>
-                    </Input>
+        <div class="login-form">
+            <h3>欢迎登录</h3>
+            <Form ref="loginForm" :model="loginForm" label-position="top" :rules="ruleLogin" >
+                <FormItem label="用户名" prop="username">
+                    <Input type="text" v-model.trim="loginForm.username" size="large"></Input>
                 </FormItem>
-                <FormItem prop="password">
-                    <Input type="password" v-model="formInline.password" placeholder="Password">
-                        <Icon type="ios-locked-outline" slot="prepend"></Icon>
-                    </Input>
+                <FormItem label="密码" prop="password">
+                    <Input type="password" v-model="loginForm.password" size="large"></Input>
                 </FormItem>
                 <FormItem>
-                    <Button type="primary" @click="handleSubmit('formInline')">登录</Button>
-                    <Button type="text" @click="handleSubmit('formInline')" style="float:right;">忘记密码</Button>
+                    <Button type="primary" @click="handleSubmit('loginForm')" long>登录</Button>
                 </FormItem>
             </Form>
         </div>
     </div>
 </template>
+
 <script>
+    import Cookies from 'js-cookie'
     export default {
-        data () {
+        data() {
             return {
-                formInline: {
-                    user: '',
-                    password: ''
+                loginForm: {
+                    username: 'admin',
+                    password: '123123',
                 },
-                ruleInline: {
-                    user: [
-                        { required: true, message: 'Please fill in the user name', trigger: 'blur' }
-                    ],
-                    password: [
-                        { required: true, message: 'Please fill in the password.', trigger: 'blur' },
-                        { type: 'string', min: 6, message: 'The password length cannot be less than 6 bits', trigger: 'blur' }
-                    ]
-                }
+                ruleLogin: {}
             }
         },
         methods: {
-            handleSubmit(name) {
-                this.$refs[name].validate((valid) => {
-                    if (valid) {
-                        this.$Message.success('Success!');
-                    } else {
-                        this.$Message.error('Fail!');
-                    }
+            handleSubmit() {
+                // this.$http('/admin/user/login', {
+                //         mobile: this.loginForm.username,
+                //         password: this.loginForm.password
+                //     })
+                //     .then(res => {
+                //         Cookies.set('token', res.token)
+                //         Cookies.set('username', this.loginForm.username)
+                //         this.$router.push({
+                //             path: '/'
+                //         })
+                //     })
+                Cookies.set('token', 'token123')
+                Cookies.set('username', this.loginForm.username)
+                this.$router.push({
+                    path: '/'
                 })
             }
-        }
+        },
+        
     }
 </script>
 
-
 <style scoped lang="scss">
-@import "~styles/index.scss";
+@import '~styles/index.scss';
 .login{
     @include fullScreen();
     display: flex;
     justify-content: center;
     align-items: center;
-    .login-center{
+    .login-form{
+        box-sizing: content-box;
+        width: 284px;
+        height: 264px;
         padding: 2rem;
         background-color: #fff;
-        width: 280px;
-        height: 200px;
-        box-sizing: content-box;
         border: 1px solid $color-border;
-        border-radius: .5rem;
-        .login-title{
-            margin-bottom: 1rem;
+        border-radius: .25rem;
+        h3{ 
+            text-align: center;
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
     }
 }
-
 </style>
